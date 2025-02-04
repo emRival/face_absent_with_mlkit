@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:students_attandance_with_mlkit/ui/absent/absent_screen.dart';
 import 'package:students_attandance_with_mlkit/ui/attandance_history/attandance_history_screen.dart';
 import 'package:students_attandance_with_mlkit/ui/attend/attend_screen.dart';
 
@@ -10,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
+      // ignore: deprecated_member_use
       onPopInvoked: (bool didPop) {
         if (didPop) {
           return;
@@ -67,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AttandanceHistoryScreen(),
+                        builder: (context) => AbsentScreen(),
                       ),
                     ),
                     child: Column(
@@ -82,6 +84,43 @@ class HomeScreen extends StatelessWidget {
                         ),
                         Text(
                           "Cuti / Izin",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                child: Expanded(
+                  child: InkWell(
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AttandanceHistoryScreen(),
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          'assets/images/ic_history.png',
+                          height: 100,
+                          width: 100,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Riwayat Absensi",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
